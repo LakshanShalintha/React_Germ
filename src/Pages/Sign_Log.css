@@ -70,3 +70,26 @@ body {
     background-color: #87316d;
   }
   
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(229, 152, 152);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
+  }
+  
+  .popup p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .popup button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  

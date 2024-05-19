@@ -4,10 +4,10 @@ import './Sign_Log.css';
 function LogIn() {
   const [formData, setFormData] = useState({
     username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    password: ''
   });
+
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,12 +21,13 @@ function LogIn() {
     e.preventDefault();
     // Here you can handle form submission, e.g., send data to a server
     console.log(formData);
+    setShowPopup(true);  // Show the popup message
   };
 
   return (
     <div className="background">
       <div className="container">
-        <h2>Sign Up</h2>
+        <h2>Log In</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="username">Username Or Email:</label>
@@ -48,8 +49,14 @@ function LogIn() {
               onChange={handleChange}
             />
           </div>
-          <button type="submit">LogIn</button>
+          <button type="submit">Log In</button>
         </form>
+        {showPopup && (
+          <div className="popup">
+            <p>Thank you!</p>
+            <button onClick={() => setShowPopup(false)}>OK</button>
+          </div>
+        )}
       </div>
     </div>
   );

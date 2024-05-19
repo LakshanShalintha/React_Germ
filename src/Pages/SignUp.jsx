@@ -9,6 +9,8 @@ function SignUp() {
     confirmPassword: ''
   });
 
+  const [showPopup, setShowPopup] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -21,6 +23,7 @@ function SignUp() {
     e.preventDefault();
     // Here you can handle form submission, e.g., send data to a server
     console.log(formData);
+    setShowPopup(true);  // Show the popup message
   };
 
   return (
@@ -70,6 +73,12 @@ function SignUp() {
           </div>
           <button type="submit">Sign Up</button>
         </form>
+        {showPopup && (
+          <div className="popup">
+            <p>Thank you for registering!</p>
+            <button onClick={() => setShowPopup(false)}>OK</button>
+          </div>
+        )}
       </div>
     </div>
   );
